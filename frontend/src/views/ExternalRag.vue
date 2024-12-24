@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-4" style="min-width: 750px;">
-        <div class="card-header" style="background-color:#FF9900">
+        <div class="card-header" style="background-color:#f2d907">
           RAG conversation with various LLMs
         </div>
         <div class="card">
@@ -20,11 +20,10 @@
                 <td>
                   <div class="select">
                   <select id="model" name="model">
-                    <option value="anthropic.claude-3-haiku-20240307-v1:0" selected>Claude 3 Haiku</option>
-                      <option value="anthropic.claude-3-5-sonnet-20240620-v1:0">Claude 3.5 Sonnet</option>
+                      <option value="anthropic.claude-3-5-sonnet-20240620-v1:0" selected>Claude 3.5 Sonnet</option>
                       <option value="anthropic.claude-3-opus-20240229-v1:0">Claude 3 Opus</option>
-                      <option value="mistral.mistral-7b-instruct-v0:2">Mistral 7B</option>
                       <option value="meta.llama3-1-8b-instruct-v1:0">Llama 3.1 Instruct 8B</option>
+                      <option value="amazon.nova-micro-v1:0">Amazon Nova Micro V1</option>
                   </select>
                   </div>
                 </td>
@@ -81,7 +80,7 @@
         </div>
       </div>
       <div class="col-lg-6 mb-4" style="max-width: 350px;">
-        <div class="card-header" style="background-color:#FF9900">
+        <div class="card-header" style="background-color:#f2d907">
           Sample Questions
         </div>
         <div class="card">
@@ -102,7 +101,7 @@
   </div>
 </template>
 <script>
-import { getAuthToken } from './../utils/auth'
+import { getAuthToken } from '../utils/auth'
 //import linkifyHtml from 'linkify-html';
     export default {
         mounted() {

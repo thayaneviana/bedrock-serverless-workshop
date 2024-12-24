@@ -1,8 +1,10 @@
 <template>
   <div>
     <div id="app">
-      <nav v-if="isLoggedIn()" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <router-link to="/" class="navbar-brand">Serverless Chatbot using Amazon Bedrock</router-link>
+      <nav v-if="isLoggedIn()" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #0d3781;">
+        <router-link to="/" class="navbar-brand">
+          <img src="./logo.jpg" style="height: 50px;"/>
+        </router-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -20,25 +22,13 @@
           </ul>
           <ul class="nav navbar-nav navbar-right mr-4 text-light">
             <li class="nav-item mr-4">
-              <router-link to="/">General chat with LLMs</router-link>
+              <router-link to="/">RAG chat with LLMs internal</router-link>
             </li>
             <li class="nav-item mr-4">
               <span>|</span>
             </li>
             <li class="nav-item mr-4">
-              <router-link to="/rag">RAG chat with LLMs</router-link>
-            </li>
-            <li class="nav-item mr-4">
-              <span>|</span>
-            </li>
-            <li class="nav-item mr-4">
-              <router-link to="/prompt">Prompt Engineering</router-link>
-            </li>
-            <li class="nav-item mr-4">
-              <span>|</span>
-            </li>
-            <li class="nav-item mr-4">
-              <router-link to="/kb">RAG with Knowledge Bases</router-link>
+              <router-link to="/external-rag">RAG chat with LLMs external</router-link>
             </li>
             <li class="nav-item mr-4">
               <span>|</span>
