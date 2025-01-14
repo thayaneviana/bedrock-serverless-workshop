@@ -22,19 +22,19 @@
           </ul>
           <ul class="nav navbar-nav navbar-right mr-4 text-light">
             <li class="nav-item mr-4">
-              <router-link to="/">RAG chat with LLMs internal</router-link>
+              <router-link to="/">Buscar Licitações</router-link>
             </li>
             <li class="nav-item mr-4">
               <span>|</span>
             </li>
             <li class="nav-item mr-4">
-              <router-link to="/external-rag">RAG chat with LLMs external</router-link>
+              <router-link to="/buscar-documentos">Buscar Documentos</router-link>
             </li>
             <li class="nav-item mr-4">
               <span>|</span>
             </li>
             <li class="nav-item">
-              <router-link to="/logout">Sign out</router-link>
+              <router-link to="/logout">Sair</router-link>
             </li>
           </ul>
         </div>

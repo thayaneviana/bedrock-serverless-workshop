@@ -16,12 +16,11 @@
         d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"
       />
     </svg>
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <div v-if="error != ''" class="alert alert-danger" role="alert">
       {{ error }}
     </div>
     <div class="form-group">
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only">Nome de Usuário</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -44,7 +43,7 @@
           name="username"
           class="form-control"
           v-model="username"
-          placeholder="Username"
+          placeholder="Usuário"
           required
           autofocus
         />
@@ -52,7 +51,7 @@
     </div>
 
     <div class="form-group">
-      <label for="username" class="sr-only">Password</label>
+      <label for="username" class="sr-only">Senha</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -76,7 +75,7 @@
           name="password"
           class="form-control"
           v-model="password"
-          placeholder="Password"
+          placeholder="Senha"
           required
           autofocus
         />
@@ -86,9 +85,10 @@
       <button
         class="btn btn-primary btn-block"
         type="submit"
+        style="background-color: #0d3781;border-color: #0d3781;"
         v-on:click="login"
       >
-        Sign in
+        Entrar
       </button>
     </div>
   </div>

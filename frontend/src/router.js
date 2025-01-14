@@ -4,8 +4,8 @@ import LoginView from './views/LoginView.vue'
 import AboutView from './views/AboutView.vue'
 import NotFoundPage from './components/NotFoundPage.vue'
 import { clearAuthToken, isLoggedIn } from './utils/auth'
-import InternalRag from './views/InternalRag.vue'
-import ExternalRag from './views/ExternalRag.vue'
+import BuscarLicitacoes from './views/BuscarLicitacoes.vue'
+import BuscarDocumentos from './views/BuscarDocumentos.vue'
 
 Vue.use(Router)
 
@@ -16,12 +16,12 @@ const router = new Router({
     {
       path: '/',
       name: 'internal-rag',
-      component: InternalRag
+      component: BuscarLicitacoes
     },
     {
-      path: '/external-rag',
+      path: '/buscar-documentos',
       name: 'external-rag',
-      component: ExternalRag
+      component: BuscarDocumentos
     },
     {
       path: '/login',
