@@ -120,3 +120,11 @@ body {
   background-color: #e9f2fd;
   
 }
+
+.gap {
+  gap: 1rem;
+}
+
+.hover:hover {
+  cursor: pointer;
+}
