@@ -113,8 +113,8 @@ import { getAuthToken } from '../utils/auth'
                     x.style.display = "block";
                     console.log(response.data)
                     currentObj.output =response.data
-                    if(!this.isMuted){
-                      this.playSound(response.data.audio_url)
+                    if(!currentObj.isMuted){
+                      currentObj.playSound(response.data.audio_url)
                     }
                     console.log(currentObj.output)
                 }).catch(function(error) {
