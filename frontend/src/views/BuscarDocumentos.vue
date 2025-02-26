@@ -20,9 +20,9 @@
                     <option value="anthropic.claude-3-5-sonnet-20240620-v1:0" selected>Claude 3.5 Sonnet</option>
                     <option value="anthropic.claude-3-opus-20240229-v1:0">Claude 3 Opus</option>
                     <option value="meta.llama3-1-8b-instruct-v1:0">Llama 3.1 Instruct 8B</option>
-                    <option value="amazon.nova-micro-v1:0">Amazon Nova Micro V1</option>
-                    <option value="amazon.nova-lite-v1:0">Amazon Nova Lite V1</option>
-                    <option value="amazon.nova-pro-v1:0">Amazon Nova Pro V1</option>
+                    <option value="us.amazon.nova-micro-v1:0">Amazon Nova Micro V1</option>
+                    <option value="us.amazon.nova-lite-v1:0">Amazon Nova Lite V1</option>
+                    <option value="us.amazon.nova-pro-v1:0">Amazon Nova Pro V1</option>
                     <option value="anthropic.claude-3-sonnet-20240229-v1:0">Claude 3 Sonnet</option>
                     <option value="anthropic.claude-3-haiku-20240307-v1:0">Claude 3 Haiku</option>
                   </select>
