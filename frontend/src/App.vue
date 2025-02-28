@@ -1,9 +1,9 @@
 <template>
   <div>
     <div id="app">
-      <nav v-if="isLoggedIn()" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #0d3781;">
+      <nav v-if="isLoggedIn()" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2791d1;">
         <router-link to="/" class="navbar-brand">
-          <img src="./logo.jpg" style="height: 50px;"/>
+          <img src="./logo.png" style="height: 50px;"/>
         </router-link>
         <button
           class="navbar-toggler"
@@ -22,7 +22,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right mr-4 text-light">
             <li class="nav-item mr-4">
-              <router-link to="/">Buscar Licitações</router-link>
+              <router-link to="/">Buscar Reservatórios</router-link>
             </li>
             <li class="nav-item mr-4">
               <span>|</span>

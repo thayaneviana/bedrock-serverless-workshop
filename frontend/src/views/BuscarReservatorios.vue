@@ -5,8 +5,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-4" style="min-width: 750px;">
-        <div class="card-header" style="background-color:#f2d907">
-          Buscar Licitações
+        <div class="card-header" style="background-color:#7ed4f2">
+          Buscar Reservatórios
         </div>
         <div class="card">
           <img class="card-img-top" src="" alt=""/>

@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-4" style="min-width: 750px;">
-        <div class="card-header" style="background-color:#f2d907">
+        <div class="card-header" style="background-color:#7ed4f2">
           Buscar Documentos
         </div>
         <div class="card">

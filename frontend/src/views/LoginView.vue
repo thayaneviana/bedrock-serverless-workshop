@@ -85,7 +85,7 @@
       <button
         class="btn btn-primary btn-block"
         type="submit"
-        style="background-color: #0d3781;border-color: #0d3781;"
+        style="background-color: #2791d1;border-color: #2791d1;"
         v-on:click="login"
       >
         Entrar
