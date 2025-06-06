@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="app">
-      <nav v-if="isLoggedIn()" class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #2791d1;">
+      <nav v-if="isLoggedIn()" class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <router-link to="/" class="navbar-brand">
           <img src="./logo.png" style="height: 50px;"/>
         </router-link>
@@ -20,21 +20,21 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right mr-4 text-light">
+          <ul class="nav navbar-nav navbar-right mr-4">
             <li class="nav-item mr-4">
-              <router-link to="/">Buscar Reservatórios</router-link>
+              <router-link to="/" style="color: #A01B1B;">Buscar Base de Dados</router-link>
             </li>
             <li class="nav-item mr-4">
-              <span>|</span>
+              <span style="color: #A01B1B;">|</span>
             </li>
             <li class="nav-item mr-4">
-              <router-link to="/buscar-documentos">Buscar Documentos</router-link>
+              <router-link to="/buscar-documentos" style="color: #A01B1B;">Buscar Documentos</router-link>
             </li>
             <li class="nav-item mr-4">
-              <span>|</span>
+              <span style="color: #A01B1B;">|</span>
             </li>
             <li class="nav-item">
-              <router-link to="/logout">Sair</router-link>
+              <router-link to="/logout" style="color: #A01B1B;">Sair</router-link>
             </li>
           </ul>
         </div>
@@ -74,9 +74,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   padding-top: 4rem;
+  min-height: 100vh;
+}
+
+body.login-background {
+  padding-top: 0;
 }
 
 li.nav-item a {
-  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+li.nav-item a:hover {
+  color: #7A1515 !important;
 }
 </style>

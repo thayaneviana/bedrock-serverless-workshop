@@ -4,7 +4,7 @@ import LoginView from './views/LoginView.vue'
 import AboutView from './views/AboutView.vue'
 import NotFoundPage from './components/NotFoundPage.vue'
 import { clearAuthToken, isLoggedIn } from './utils/auth'
-import BuscarReservatorios from './views/BuscarReservatorios.vue'
+import BuscarBaseDeDados from './views/BuscarBaseDeDados.vue'
 import BuscarDocumentos from './views/BuscarDocumentos.vue'
 
 Vue.use(Router)
@@ -16,7 +16,7 @@ const router = new Router({
     {
       path: '/',
       name: 'internal-rag',
-      component: BuscarReservatorios
+      component: BuscarBaseDeDados
     },
     {
       path: '/buscar-documentos',

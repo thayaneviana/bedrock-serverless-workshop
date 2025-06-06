@@ -5,8 +5,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-4" style="min-width: 750px;">
-        <div class="card-header" style="background-color:#7ed4f2">
-          Buscar Reservatórios
+        <div class="card-header" style="background-color: #A01B1B; color: white;">
+          Buscar Base de Dados
         </div>
         <div class="card">
           <img class="card-img-top" src="" alt=""/>
@@ -41,50 +41,65 @@
 </template>
 <script>
 import { getAuthToken } from '../utils/auth'
-//import linkifyHtml from 'linkify-html';
-    export default {
-        mounted() {
-            console.log('Component mounted.')
+
+export default {
+    mounted() {
+        console.log('Component mounted.')
+    },
+    data() {
+        return {
+            name: '',
+            description: '',
+            output: '',
+            isMuted: false
+        };
+    },
+    methods: {
+      playSound (sound) {
+          if(sound) {
+            var audio = new Audio(sound);
+            audio.play();
+          }
         },
-        data() {
-            return {
-                name: '',
-                description: '',
-                output: ''
-            };
-        },
-        methods: {
-            formSubmit(e) {
-                console.log('started.')
-                e.preventDefault();
-                var x = document.getElementById("divresult");
-                var img = document.getElementById("loading");
-                img.style.display = "block";
-                x.style.display = "none";
-                let currentObj = this;
-                const json = JSON.stringify({
-                    query: this.name
-                });
-               console.log(json)
-               const config = {
-    headers:{
-        'Content-Type': 'application/json',
-        'Authorization': getAuthToken()
-      }
-    };
-     this.axios.post('/consultabd',
-     json, config).then(function(response) {
-                    img.style.display = "none";
-                    x.style.display = "block";
-                    console.log(response.data)
-                    currentObj.output =response.data
-                    console.log(currentObj.output)
-                }).catch(function(error) {
-                    currentObj.output = error;
-                    console.log('ERROR')
-                    console.log(currentObj.output)
-                });
+      mute(){
+        this.isMuted = !this.isMuted;
+      },
+      formSubmit(e) {
+          console.log('started.')
+          e.preventDefault();
+          var x = document.getElementById("divresult");
+          var img = document.getElementById("loading");
+
+          img.style.display = "block";
+          x.style.display = "none";
+          let currentObj = this;
+          const json = JSON.stringify({
+              query: this.name
+          });
+          console.log(json)
+          const config = {
+            headers:{
+                'Content-Type': 'application/json',
+                'Authorization': getAuthToken()
             }
-        }
+          };
+          this.axios.post('/rag',
+          json, config).then(function(response) {
+                img.style.display = "none";
+                x.style.display = "block";
+                console.log(response.data)
+                currentObj.output =response.data
+                if(!currentObj.isMuted){
+                  currentObj.playSound(response.data.audio_url)
+                }
+                console.log(currentObj.output)
+            })
+            .catch(function(error) {
+                img.style.display = "none";
+                x.style.display = "block";
+                currentObj.output = error.response.data
+            });
+      }
     }
-</script>
+}
+</script> 

@@ -1,5 +1,5 @@
 <template>
-  <div class="form-signin text-center mt-5">
+  <div class="form-signin text-center mt-5 login-page">
     <!-- Source: https://icons.getbootstrap.com/ License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@
       <button
         class="btn btn-primary btn-block"
         type="submit"
-        style="background-color: #2791d1;border-color: #2791d1;"
+        style="background-color: #A01B1B; border-color: #A01B1B;"
         v-on:click="login"
       >
         Entrar
@@ -115,10 +115,23 @@ export default {
       }
     },
   },
+  mounted() {
+    // Adiciona a classe ao body quando o componente é montado
+    document.body.classList.add('login-background');
+  },
+  beforeDestroy() {
+    // Remove a classe do body quando o componente é destruído
+    document.body.classList.remove('login-background');
+  }
 };
 </script>
 
-<style scoped>
+<style>
+  /* Estilo global para a página de login */
+  .login-background {
+    background-color: #FFF5F5 !important;
+  }
+
   body {
     display: -ms-flexbox;
     display: -webkit-box;
@@ -131,12 +144,16 @@ export default {
     justify-content: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: #f5f5f5;
   }
   
   .btn {
-    background-color: #ec7211;
-    border-color: #ec7211;
+    background-color: #A01B1B !important;
+    border-color: #A01B1B !important;
+  }
+  
+  .btn:hover {
+    background-color: #7A1515 !important;
+    border-color: #7A1515 !important;
   }
   
   .form-signin {

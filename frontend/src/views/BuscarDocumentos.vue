@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-4" style="min-width: 750px;">
-        <div class="card-header" style="background-color:#7ed4f2">
+        <div class="card-header" style="background-color: #A01B1B; color: white;">
           Buscar Documentos
         </div>
         <div class="card">
@@ -18,7 +18,8 @@
                 <div class="select">
                   <select id="model" name="model">
                     <option value="anthropic.claude-3-5-sonnet-20240620-v1:0" selected>Claude 3.5 Sonnet</option>
-                    <option value="anthropic.claude-3-opus-20240229-v1:0">Claude 3 Opus</option>
+                    <option value="anthropic.claude-3-7-sonnet-20240626-v1:0">Claude 3.7 Sonnet</option>
+                    <option value="anthropic.claude-sonnet-4-20240626-v1:0">Claude Sonnet 4</option>
                     <option value="meta.llama3-1-8b-instruct-v1:0">Llama 3.1 Instruct 8B</option>
                     <option value="us.amazon.nova-micro-v1:0">Amazon Nova Micro V1</option>
                     <option value="us.amazon.nova-lite-v1:0">Amazon Nova Lite V1</option>
@@ -70,7 +71,7 @@ import { getAuthToken } from '../utils/auth'
                 name: '',
                 description: '',
                 output: '',
-                isMuted: false
+                isMuted: true
             };
         },
         methods: {
