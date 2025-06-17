@@ -89,4 +89,9 @@ li.nav-item a {
 li.nav-item a:hover {
   color: #7A1515 !important;
 }
+
+.login-background {
+  background-color: #FFF5F5 !important;
+}
+
 </style>

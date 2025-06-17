@@ -17,7 +17,7 @@
               <strong>Pergunta</strong> <br />
               <input type="text" class="form-control" v-model="name" placeholder="Escreva sua pergunta..." />
               <br />
-              <button class="btn btn-success">Perguntar</button>
+              <button class="btn">Perguntar</button>
             </form>
             <br />
             <div id="loading" style="display: none">
@@ -83,7 +83,7 @@ export default {
                 'Authorization': getAuthToken()
             }
           };
-          this.axios.post('/rag',
+          this.axios.post('/consultabd',
           json, config).then(function(response) {
                 img.style.display = "none";
                 x.style.display = "block";

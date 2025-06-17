@@ -21,8 +21,8 @@
                   <div class="select">
                   <select id="model" name="model">
                     <option value="anthropic.claude-3-5-sonnet-20240620-v1:0">Claude 3.5 Sonnet</option>
-                    <option value="anthropic.claude-3-7-sonnet-20240626-v1:0">Claude 3.7 Sonnet</option>
-                    <option value="anthropic.claude-sonnet-4-20240626-v1:0">Claude Sonnet 4</option>
+                    <option value="anthropic.claude-3-7-sonnet-20250219-v1:0">Claude 3.7 Sonnet</option>
+                    <option value="anthropic.claude-sonnet-4-20250514-v1:0">Claude Sonnet 4</option>
                   </select>
                   </div>
                 </td>
