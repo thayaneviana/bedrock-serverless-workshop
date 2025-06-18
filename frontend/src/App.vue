@@ -60,7 +60,6 @@ export default {
       if (authenticated) {
         this.username = getUsername();
       }
-
       return authenticated;
     },
   },

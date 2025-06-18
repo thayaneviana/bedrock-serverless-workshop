@@ -1,5 +1,103 @@
 <style>
 @import '../app.css';
+
+/* Component-specific styles for BuscarDocumentos */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+}
+
+.card-body {
+  position: relative;
+  min-height: 500px;
+  padding: 20px;
+}
+
+#loading-docs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 200px;
+  text-align: center;
+}
+
+#divresult-docs {
+  min-height: 200px;
+  margin-top: 20px;
+  position: relative;
+  /* Keep the space reserved even when hidden */
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#divresult-docs.hidden {
+  opacity: 0;
+  /* Don't use display: none to prevent layout shifts */
+}
+
+.row.gap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.row.gap > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.row.gap svg {
+  flex-shrink: 0;
+}
+
+/* Ensure container stays centered */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  justify-content: center;
+  width: 100%;
+}
+
+.col-lg-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 750px;
+}
+
+/* Align card header with card body */
+.card-header {
+  width: 100%;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom: none;
+  margin-bottom: 0;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.card {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+  margin-top: 0;
+}
 </style>
 <template>
   <div class="container">
@@ -18,8 +116,8 @@
                 <div class="select">
                   <select id="model" name="model">
                     <option value="anthropic.claude-3-5-sonnet-20240620-v1:0" selected>Claude 3.5 Sonnet</option>
-                    <option value="anthropic.claude-3-7-sonnet-20250219-v1:0">Claude 3.7 Sonnet</option>
-                    <option value="anthropic.claude-sonnet-4-20250514-v1:0">Claude Sonnet 4</option>
+                    <option value="us.anthropic.claude-3-7-sonnet-20250219-v1:0">Claude 3.7 Sonnet</option>
+                    <option value="us.anthropic.claude-sonnet-4-20250514-v1:0">Claude Sonnet 4</option>
                     <option value="meta.llama3-1-8b-instruct-v1:0">Llama 3.1 Instruct 8B</option>
                     <option value="us.amazon.nova-micro-v1:0">Amazon Nova Micro V1</option>
                     <option value="us.amazon.nova-lite-v1:0">Amazon Nova Lite V1</option>
@@ -40,10 +138,10 @@
               <button class="btn">Perguntar</button>
             </form>
             <br />
-            <div id="loading" style="display: none">
+            <div id="loading-docs" style="display: none">
               <strong>Carregando...</strong>
             </div>
-            <div id="divresult" class="text-secondary mb-2" style="display: block; padding: 3px;">
+            <div id="divresult-docs" class="text-secondary mb-2" style="display: block; padding: 3px;">
               <strong v-if="output.answer" style="display: block; white-space: pre-line; text-align: left">Resposta: </strong>
               <span v-if="output.answer" style="white-space: pre-line; text-align: left">{{output.answer}}</span>
               <br />
@@ -65,6 +163,12 @@ import { getAuthToken } from '../utils/auth'
     export default {
         mounted() {
             console.log('Component mounted.')
+            // Adiciona a classe ao body quando o componente é montado
+            document.body.classList.add('login-background');
+        },
+        beforeDestroy() {
+            // Remove a classe do body quando o componente é destruído
+            document.body.classList.remove('login-background');
         },
         data() {
             return {
@@ -87,19 +191,19 @@ import { getAuthToken } from '../utils/auth'
           formSubmit(e) {
               console.log('started.')
               e.preventDefault();
-              var x = document.getElementById("divresult");
-              var img = document.getElementById("loading");
+              var x = document.getElementById("divresult-docs");
+              var img = document.getElementById("loading-docs");
               var model_select = document.getElementById('model');
               var model_id = model_select.options[model_select.selectedIndex].value;
 
+              // Use opacity and classes instead of display to prevent layout shifts
               img.style.display = "block";
-              x.style.display = "none";
+              x.classList.add("hidden");
+              
               let currentObj = this;
               const json = JSON.stringify({
                   query: this.name,
                   model_id: model_id
-
-
               });
               console.log(json)
               const config = {
@@ -111,7 +215,7 @@ import { getAuthToken } from '../utils/auth'
               this.axios.post('/kb',
               json, config).then(function(response) {
                     img.style.display = "none";
-                    x.style.display = "block";
+                    x.classList.remove("hidden");
                     console.log(response.data)
                     currentObj.output =response.data
                     if(!currentObj.isMuted){
@@ -119,6 +223,8 @@ import { getAuthToken } from '../utils/auth'
                     }
                     console.log(currentObj.output)
                 }).catch(function(error) {
+                    img.style.display = "none";
+                    x.classList.remove("hidden");
                     currentObj.output = error;
                     console.log('ERROR')
                     console.log(currentObj.output)

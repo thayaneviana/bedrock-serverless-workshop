@@ -1,5 +1,24 @@
 <style>
 @import '../app.css';
+
+/* Align card header with card body */
+.card-header {
+  width: 100%;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom: none;
+  margin-bottom: 0;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.card {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+  margin-top: 0;
+}
 </style>
 <template>
   <div class="container">
@@ -45,6 +64,12 @@ import { getAuthToken } from '../utils/auth'
 export default {
     mounted() {
         console.log('Component mounted.')
+        // Adiciona a classe ao body quando o componente é montado
+        document.body.classList.add('login-background');
+    },
+    beforeDestroy() {
+        // Remove a classe do body quando o componente é destruído
+        document.body.classList.remove('login-background');
     },
     data() {
         return {
